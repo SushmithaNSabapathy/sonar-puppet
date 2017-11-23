@@ -1,0 +1,24 @@
+dist: trusty
+sudo: required
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+env:
+  global:
+    - secure: "AaOHvOE6HJDMNyWiwv1kDUcDm0kNS/0uxIhmxm01rtCa+aSAUK2gteCZU/se1qYLt/uda+KJCcApt7YgT0ibLotSX3SIuaEQHoB7jf2GJmCDMSwtUkkqtyYG+QGEJ3bUHTyTI33Tg3yWy7I+AHbWyQpMIIa61DfNdZwvTUnEQOcMCJf5+9zmOmQ1UXjpIIQ9J8x0Jg6JarbXuhYRUrCZiTXpCwlI7igTAOQmf61e50bPj0tuJU+F0E+Z/FNuvw6OKqA3eBM2quSammUctEFtQb/4qjyoYhmr/OWyLc5nWBsSIgNPhIfy8mPP8OOPXLWBDxxf/14vs+lg/v1XEr20ZCGDE0oWVK+MWkRCcvDVU/AzU60QiHyLf/Thq3FqWghgIsgm8BgaC+0HimpbFr5Rt6Qb4mu3z5wdCY+sM2kToM6dqPLvwVGxy0ivcJMF/J7U6hJH7oJhUMGyybgw/r1wdCONtCilGUZr+oT8u7yvqKDsBD76sEmFdCWQNfpL3S4G7sTTWOqWKKINCK79DTF0+fI+ZMRNo4x+AuYnc8F8YPLAK/NUfLciUlNSIuJTZ4tQgAIl940geQM8gmt/E7u+LR9P7D01qLa+Kw3R07LGOPunoDuVZYVrq36Gp81ArPSn0y0u2Ij5C1A5+0BSk9p0gQxpiVAaOB4FUzmN59WQxnk="
+    - secure: "Uk8CCF7F3c135gscYvtJHnG+VXWHyXm/QBPCl4blmKdamzumT1xvLUXDiBmCwZBXzvJ6iohJkGX/IIDc+BREs6YT9Lv3mvoId9bU6v0Z2N7DlLemWloFTd5pLhzosF2D+H4feSybE6TEg4KvYqTxZQSnva36zoc2gXH4YjSvvh4xlNf1MoHOp0+Gk4GTt6W891UTm74WH+DJGR9tOQDZ2ThQPIZVPn16uCMgXRxN+tM76011/U/VAPpAGcTFQ3R9jk0rVWTtyoaZv/akGB4WpvdgtcDlIGjzLQ/J8O8Acf7iiBsw8Cx6TCpXPxjOvEI8ea52NV0mD6QRZOTX2P71DiUsWOzyeniSJ1AA1yjW05q10YJ/4HudM/q/79o6MzYi3S6vfkaFDGB9sqLsWoLnmNVe9iuzcmmdwZOznbFaLmkFgw4ENTvm1NEsYwFtprXvt8GTBs+y0BI+/XSpgO3f6QhEnB2OIc1PsvYo4iaWAdifMfuw3zeY8vyE0Ax9oUo6CnRcHhnkoXEi1ru+boFGH+KiqT5RR5PtlhRYoJNaOsZPJ3kqQ4L6PfwutYKtBlXsGcj3wnP9LlMcdVEEUmiaSZeRoz/WPETGAvY4sEPOHX9QlBL44vtTLvUjrZLrRAQdO6mhuHwzyT3ulciwQ7bXAdgyey4jjnWOS54ZOLVRRmU="
+
+  matrix:
+    - SQ_VERSION=LTS
+    - SQ_VERSION=LATEST_RELEASE
+    - SQ_VERSION=DEV
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+
+script: ./travis.sh

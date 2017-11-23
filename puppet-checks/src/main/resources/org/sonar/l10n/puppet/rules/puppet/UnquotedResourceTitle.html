@@ -1,0 +1,41 @@
+<p>
+    All resource titles must be quoted. If you are using an array of titles you must quote each title in the array, but should not quote the array itself.<br/>
+    Note that if the title is just a variable, it doesn't need to be quoted.<br/>
+</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+file { foo:    # Noncompliant
+  ensure => directory,
+}
+
+file { [
+    abc,       # Noncompliant
+    $var,
+  ]:
+  ensure => directory,
+}
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+file { 'foo':
+  ensure => directory,
+}
+
+file { $bar:
+  ensure => directory,
+}
+
+file { [
+    'abc',
+    $var,
+  ]:
+  ensure => directory,
+}
+</pre>
+<h2>See</h2>
+<ul>
+    <li><a href="https://docs.puppetlabs.com/guides/style_guide.html#resource-names">See Puppet Labs Puppet Language
+        Style Guide - Resource Names</a></li>
+    <li><a href="https://docs.puppetlabs.com/guides/style_guide.html#quoting">See Puppet Labs Puppet Language
+        Style Guide - Quoting </a></li>
+</ul>
